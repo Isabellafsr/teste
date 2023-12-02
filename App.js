@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Button, TextInput } from "react-native";
+import { View, Text, StyleSheet, Button, TextInput, Switch } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack'
 import { useNavigation } from "@react-navigation/native";
@@ -8,16 +8,20 @@ function cadastrar() {
   const navigation = useNavigation()
   return (
     <View style={style.container}>
-      <Text>Seja bem vindo!</Text><Button />
+      <Text>Seja bem vindo!</Text>
+      <Text>Seu nome de user: </Text>
       <TextInput/>
-      <TextInput secureTextEntry={true}
-      />
+      <Text>Seu melhor email: </Text>
+      <TextInput/>
+      <Text>Senha de user: </Text>
+      <TextInput secureTextEntry={true}/>
+     
       <Button title="Cadastrar" onPress={() => {
         navigation.navigate("iniciologado")
       }}/>
       <Button title="fazer login"
       onPress={() => {
-        navigation.navigate("telalogin")
+        navigation.navigate("login")
 
       }}/>
     </View>
@@ -62,6 +66,11 @@ function login() {
   return (
     <View style={style.container}>
       <Text>Faça o login</Text>
+      <Text>Nome de user: </Text>
+      <TextInput/>
+      <Text>Senha de user: </Text>
+      <TextInput secureTextEntry={true}/>
+
       <Button title="login"
       onPress={() => {
         navigation.navigate("iniciologado")
@@ -73,7 +82,14 @@ function profile() {
   const navigation = useNavigation()
   return (
     <View style={style.container}>
-      <Text>seu perfil</Text>
+      <Text>Perfil pessoal</Text>
+      <Text>Notificações</Text>
+      <Switch></Switch>
+      <Text>Receber novidades da loja</Text>
+      <Switch></Switch>
+      <Text>Receber mensagens</Text>
+      <Switch></Switch>
+      <Text>Apagar/Desabilitar Conta</Text>
       <Button title="Voltar"
       onPress={() => {
         navigation.navigate("iniciologado")
