@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Button, TextInput, Switch } from "react-native";
+import { View, Text, StyleSheet, TextInput, Switch, Pressable, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from '@react-navigation/stack'
 import { useNavigation } from "@react-navigation/native";
@@ -7,7 +7,9 @@ import { useNavigation } from "@react-navigation/native";
 function cadastrar() {
   const navigation = useNavigation()
   return (
+    
     <View style={style.container}>
+      
       <Text>Seja bem vindo!</Text>
       <Text>Seu nome de user: </Text>
       <TextInput/>
@@ -16,14 +18,17 @@ function cadastrar() {
       <Text>Senha de user: </Text>
       <TextInput secureTextEntry={true}/>
      
-      <Button title="Cadastrar" onPress={() => {
+      <Pressable onPress={() => {
         navigation.navigate("iniciologado")
-      }}/>
-      <Button title="fazer login"
+      }}>
+        <Text>Cadastrar</Text>
+      </Pressable>
+      <Pressable title="fazer login"
       onPress={() => {
         navigation.navigate("login")
-
-      }}/>
+      }}>
+        <Text> Fazer login</Text>
+      </Pressable>
     </View>
     
   )
@@ -33,16 +38,16 @@ function iniciologado() {
   return (
     <View style={style.container}>
       <Text>parabens pelo cadastro</Text>
-      <Button title="Voltar"
+      <Pressable title="Voltar"
       onPress={() => {
         navigation.navigate("cadastrar")
 
       }}/>
-      <Button title="go perfil"
+      <Pressable title="go perfil"
       onPress={() => {
         navigation.navigate("profile")
       }}/>
-      <Button title="suporte"
+      <Pressable title="suporte"
       onPress={() => {
         navigation.navigate("chat")
       }}/>
@@ -50,14 +55,25 @@ function iniciologado() {
   )
 }
 function home() {
+
   const navigation = useNavigation()
   return (
     <View style={style.container}>
-      <Text>Bem vindo</Text>
-      <Button title="Cadastrar"
+      <Image source={{
+        uri: "https://makeumuarama.com.br/image/cache/catalog/Produtos/USEGLOW/PEDRA%202-800x660.jpg"
+      }}
+      style={style.imagem}
+      />
+      <br></br>
+      <br></br>
+      <Text>Bem vindo!!!</Text>
+      <br></br>
+      <Pressable title="Cadastrar"
       onPress={() => {
         navigation.navigate("cadastrar")
-      }}/>
+      }}>
+        <Text> Cadastrar</Text>
+        </Pressable>
     </View>
   )
   }
@@ -71,10 +87,12 @@ function login() {
       <Text>Senha de user: </Text>
       <TextInput secureTextEntry={true}/>
 
-      <Button title="login"
+      <Pressable
       onPress={() => {
         navigation.navigate("iniciologado")
-      }}/>
+      }}>
+        <Text></Text>
+      </Pressable>
     </View>
   )
 }
@@ -90,7 +108,7 @@ function profile() {
       <Text>Receber mensagens</Text>
       <Switch></Switch>
       <Text>Apagar/Desabilitar Conta</Text>
-      <Button title="Voltar"
+      <Pressable title="Voltar"
       onPress={() => {
         navigation.navigate("iniciologado")
       }}/>
@@ -103,7 +121,7 @@ function chat() {
   return (
     <View style={style.container}>
       <Text>Papo</Text>
-      <Button title="Voltar"
+      <Pressable title="Voltar"
       onPress={() => {
         navigation.navigate("iniciologado")
       }}/>
@@ -133,6 +151,14 @@ const style = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'pink',
+  },
+  imagem: { 
+    width: 100,
+    height: 100,
+    borderRadius: 50
+
   }
+  
 })
