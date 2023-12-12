@@ -42,15 +42,21 @@ function iniciologado() {
       onPress={() => {
         navigation.navigate("cadastrar")
 
-      }}/>
+      }}>
+        <Text>Voltar para cadastro</Text>
+        </Pressable>
       <Pressable title="go perfil"
       onPress={() => {
         navigation.navigate("profile")
-      }}/>
+      }}>
+        <Text>ir para perfil</Text>
+        </Pressable>
       <Pressable title="suporte"
       onPress={() => {
         navigation.navigate("chat")
-      }}/>
+      }}>
+        <Text>Ir para suporte</Text>
+        </Pressable>
     </View>
   )
 }
@@ -91,7 +97,7 @@ function login() {
       onPress={() => {
         navigation.navigate("iniciologado")
       }}>
-        <Text></Text>
+        <Text>Ir para tela inicial</Text>
       </Pressable>
     </View>
   )
@@ -111,7 +117,9 @@ function profile() {
       <Pressable title="Voltar"
       onPress={() => {
         navigation.navigate("iniciologado")
-      }}/>
+      }}>
+        <Text>Voltar</Text>
+        </Pressable>
     </View>
   )
   
@@ -124,7 +132,8 @@ function chat() {
       <Pressable title="Voltar"
       onPress={() => {
         navigation.navigate("iniciologado")
-      }}/>
+      }}><Text>Voltar</Text>
+      </Pressable>
     </View>
   )
   
